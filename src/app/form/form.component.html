@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form [formGroup]="nameForm" (ngSubmit)="FormSubmit(nameForm.value)">
+        <div class="form-group">
+          <label for="email">Email
+            <span class="reqClass">*</span>
+          </label>
+          <input type="email" class="form-control" formControlName="email">
+          <div class="form-error-msg text-danger" *ngIf="!nameForm.controls['email'].valid && nameForm.controls['email'].touched">
+            <div *ngIf="nameForm.controls['email'].errors.required">
+              Email is required*
+            </div>
+            <div *ngIf="!nameForm.controls['email'].errors.required && nameForm.controls['email'].errors.email">
+              Not a valid email*
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Username
+            <span class="reqClass">*</span>
+          </label>
+          <input type="text" class="form-control" formControlName="username">
+          <div class="form-error-msg text-danger" *ngIf="!nameForm.controls['username'].valid && nameForm.controls['username'].touched">
+            User name is required*
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password
+            <span class="reqClass">*</span>
+          </label>
+          <input type="password" class="form-control" formControlName="password">
+          <div *ngIf="(nameForm.controls['password'].invalid && nameForm.controls['password'].touched)" class="form-error-msg text-danger"
+            minlength="8">
+            <div *ngIf="nameForm.controls['password'].errors.required">
+              Password is required*
+            </div>
+            <div [hidden]="!nameForm.controls['password'].hasError('minlength')" class="text-danger">
+              Password must be minimum 8 char length
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Phone(10 digit)
+            <span class="reqClass">*</span>
+          </label>
+          <input type="text" class="form-control" formControlName="mobile">
+          <div *ngIf="(nameForm.controls['mobile'].invalid && nameForm.controls['mobile'].touched)" class="form-error-msg text-danger">
+            <div *ngIf="nameForm.controls['mobile'].errors.required">
+              Phone number is required*
+            </div>
+            <div *ngIf="nameForm.controls['mobile'].errors.pattern">
+              Numbers Only[starts 6,7,8,9]
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Country
+            <span class="reqClass">*</span>
+          </label>
+          <select class="form-control" formControlName="country">
+            <option value="India">India</option>
+            <option value="US">US</option>
+            <option value="UK">UK</option>
+          </select>
+          <div class="form-error-msg text-danger" *ngIf="!nameForm.controls['country'].valid && nameForm.controls['country'].touched">
+             Country is required*
+            </div>
+        </div>
+        <div class="btn1">
+          <button [disabled]="!nameForm.valid" type="submit" class="btn btn-primary">Submit</button>
+          <button  type="button" (click)="FormReset()" class="btn btn-warning">Reset</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <app-result></app-result>
+    </div>
+  </div>
+</div>

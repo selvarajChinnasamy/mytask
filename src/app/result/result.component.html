@@ -1,0 +1,60 @@
+<div *ngIf="Userdata" class="container">
+  <div class="row">
+    <div class="col-sm-1">
+      <b>Email</b>
+    </div>
+    <div class="col-sm-1">
+      :
+    </div>
+    <div class="col-sm-1">
+      {{Userdata.email}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <b>UserName</b>
+    </div>
+    <div class="col-sm-1">
+      :
+    </div>
+    <div class="col-sm-1">
+      {{Userdata.username}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <b>Phone</b>
+    </div>
+    <div class="col-sm-1">
+      :
+    </div>
+    <div class="col-sm-1">
+      {{Userdata.mobile}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <b>Country</b>
+    </div>
+    <div class="col-sm-1">
+      :
+    </div>
+    <div class="col-sm-1">
+      {{Userdata.country}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <b>Password</b>
+    </div>
+    <div class="col-sm-1">
+      :
+    </div>
+    <div class="col-sm-1">
+      {{Userdata.password}}
+    </div>
+  </div>
+</div>
+<div class="alert alert-danger" *ngIf="!Userdata">
+  No data found!
+</div>
